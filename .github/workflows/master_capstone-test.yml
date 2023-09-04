@@ -18,10 +18,17 @@ jobs:
       with:
         node-version: '18'  # or your desired version
 
-    - name: Install dependencies and build frontend
+    - name: Install backend dependencies and compile
       run: |
         cd server
         npm ci
+        npm run build
+
+    - name: Install frontend dependencies and build
+      run: |
+        cd client
+        npm ci
+        npm run build
 
     - name: Deploy to Azure App Service
       uses: azure/webapps-deploy@v2
