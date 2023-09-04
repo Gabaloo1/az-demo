@@ -20,7 +20,7 @@ jobs:
 
     - name: Install dependencies and build frontend
       run: |
-        cd backend
+        cd server
         npm ci
 
     - name: Deploy to Azure App Service
@@ -29,4 +29,4 @@ jobs:
         app-name: 'capstone-test'
         slot-name: 'production' # Optional. Default is 'production'
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AF2695848D4549EB85D88C6A465BC66B }}
-        package: './backend'
+        package: './server'
